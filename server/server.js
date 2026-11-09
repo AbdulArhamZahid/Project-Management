@@ -3,7 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import { clerkMiddleware } from '@clerk/express'
 import {serve } from "inngest/express"
-import { inngest, functions } from "./inngest/index.js ";
+import { inngest, functions } from "./inngest/index.js";
 
 const app = express();
 
@@ -22,3 +22,5 @@ app.use("/api/inngest", serve({ client: inngest, functions }));
 const PORT = process.env.PORT || 7777
 
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`))
+
+export default app;
