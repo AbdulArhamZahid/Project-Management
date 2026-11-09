@@ -1,7 +1,7 @@
 import { inngest } from "inngest";
 import prisma from "../configs/prisma.js";
 
-export const inngest = new inngest({ id: "project-management" });
+export const inngest = new Inngest({ id: "project-management" });
 
 const syncUserCreation = inngest.createFunction(
     { id: 'sync-user-from-clerk' },
@@ -11,7 +11,7 @@ const syncUserCreation = inngest.createFunction(
         await prisma.user.create({
             data: {
                 id: data.id,
-                email: data?.email_addresses[0] ?.email.addres,
+                email: data?.email_addresses[0] ?.email.address,
                 name: data?.first_name + " " + data?.last_name,
                 image: data?.image_url,
             }
@@ -43,7 +43,7 @@ const syncUserUpdation = inngest.createFunction(
 
             },
             data: {
-                email: data?.email_addresses[0] ?.email.addres,
+                email: data?.email_addresses[0] ?.email.address,
                 name: data?.first_name + " " + data?.last_name,
                 image: data?.image_url,
             }
