@@ -18,13 +18,13 @@ const Layout = () => {
     dispatch(loadTheme());
   }, []);
 
-  // if(!user){
-  //   return(
-  //       <div className="flex justify-center items-center h-screen bg-white dark:bg-zinc-950">
-  //          <SignIn/> 
-  //       </div>
-  //   )
-  // }
+  if(!user){
+    return(
+        <div className="flex justify-center items-center h-screen bg-white dark:bg-zinc-950">
+           <SignIn/> 
+        </div>
+    )
+  }
 
   if (loading)
     return (
